@@ -1,7 +1,7 @@
 
 Name: app-wordpress
 Epoch: 1
-Version: 1.0.1
+Version: 1.7.0
 Release: 1%{dist}
 Summary: **wordpress_app_name**
 License: GPL
