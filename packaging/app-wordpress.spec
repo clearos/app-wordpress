@@ -1,9 +1,9 @@
 
 Name: app-wordpress
 Epoch: 1
-Version: 1.0.1
+Version: 2.0.0
 Release: 1%{dist}
-Summary: **wordpress_app_name**
+Summary: WordPress
 License: GPL
 Group: ClearOS/Apps
 Packager: Xtreem Solution
@@ -18,10 +18,10 @@ Requires: unzip
 Requires: zip
 
 %description
-**wordpress_app_description**
+WordPress website content management system (or CMS).
 
 %package core
-Summary: **wordpress_app_name** - Core
+Summary: WordPress - Core
 License: LGPL
 Group: ClearOS/Libraries
 Requires: app-base-core
@@ -31,7 +31,7 @@ Requires: mod_ssl
 Requires: phpMyAdmin
 
 %description core
-**wordpress_app_description**
+WordPress website content management system (or CMS).
 
 This package provides the core API and libraries.
 

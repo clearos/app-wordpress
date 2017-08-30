@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'wordpress';
-$app['version'] = '1.0.0';
+$app['version'] = '2.0.0';
 $app['release'] = '1';
 $app['vendor'] = 'Xtreem Solution'; // e.g. Acme Co
 $app['packager'] = 'Xtreem Solution'; // e.g. Gordie Howe
