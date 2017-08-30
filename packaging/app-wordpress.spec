@@ -1,9 +1,9 @@
 
 Name: app-wordpress
 Epoch: 1
-Version: 1.7.0
+Version: 1.7.1
 Release: 1%{dist}
-Summary: **wordpress_app_name**
+Summary: app-wordpress
 License: GPL
 Group: ClearOS/Apps
 Packager: Xtreem Solution
@@ -18,10 +18,10 @@ Requires: unzip
 Requires: zip
 
 %description
-**wordpress_app_description**
+Wordpress is a Content Mangement System (CMS) that is commonly used for blogging and information sharing. Millions of websites use Wordpress as a foundational technology. It is based on PHP and uses a backend database like MariaDB or MySQL for data storage.
 
 %package core
-Summary: **wordpress_app_name** - Core
+Summary: app-wordpress - Core
 License: LGPL
 Group: ClearOS/Libraries
 Requires: app-base-core
@@ -31,8 +31,6 @@ Requires: mod_ssl
 Requires: phpMyAdmin
 
 %description core
-**wordpress_app_description**
-
 This package provides the core API and libraries.
 
 %prep
