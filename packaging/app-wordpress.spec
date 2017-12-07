@@ -1,10 +1,10 @@
 
 Name: app-wordpress
 Epoch: 1
-Version: 2.0.0
+Version: 2.1.0
 Release: 1%{dist}
 Summary: WordPress
-License: GPL
+License: GPLv3
 Group: ClearOS/Apps
 Packager: Xtreem Solution
 Vendor: Xtreem Solution
@@ -12,8 +12,10 @@ Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
 Requires: %{name}-core = 1:%{version}-%{release}
 Requires: app-base
-Requires: app-web-server
+Requires: app-certificate-manager
 Requires: app-mariadb
+Requires: app-php-engines
+Requires: app-web-server >= 1:2.4.0
 Requires: unzip
 Requires: zip
 
@@ -22,13 +24,15 @@ WordPress website content management system (or CMS).
 
 %package core
 Summary: WordPress - Core
-License: LGPL
+License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
-Requires: mod_authnz_external
-Requires: mod_authz_unixgroup
-Requires: mod_ssl
-Requires: phpMyAdmin
+Requires: app-certificate-manager-core
+Requires: app-flexshare-core
+Requires: app-mariadb-core
+Requires: app-php-engines-core
+Requires: app-web-server-core >= 1:2.4.5
+Requires: app-webapp >= 1:2.4.0
 
 %description core
 WordPress website content management system (or CMS).
@@ -44,10 +48,8 @@ mkdir -p -m 755 %{buildroot}/usr/clearos/apps/wordpress
 cp -r * %{buildroot}/usr/clearos/apps/wordpress/
 rm -f %{buildroot}/usr/clearos/apps/wordpress/README.md
 install -d -m 0755 %{buildroot}/var/clearos/wordpress
-install -d -m 0755 %{buildroot}/var/clearos/wordpress/backup
-install -d -m 0755 %{buildroot}/var/clearos/wordpress/sites
-install -d -m 0755 %{buildroot}/var/clearos/wordpress/versions
-install -D -m 0644 packaging/app-wordpress.conf %{buildroot}/etc/httpd/conf.d/app-wordpress.conf
+install -d -m 0775 %{buildroot}/var/clearos/wordpress/backup
+install -d -m 0775 %{buildroot}/var/clearos/wordpress/versions
 
 %post
 logger -p local6.notice -t installer 'app-wordpress - installing'
@@ -90,10 +92,8 @@ exit 0
 %exclude /usr/clearos/apps/wordpress/unify.json
 %dir /usr/clearos/apps/wordpress
 %dir %attr(0755,webconfig,webconfig) /var/clearos/wordpress
-%dir %attr(0755,webconfig,webconfig) /var/clearos/wordpress/backup
-%dir %attr(0755,webconfig,webconfig) /var/clearos/wordpress/sites
-%dir %attr(0755,webconfig,webconfig) /var/clearos/wordpress/versions
+%dir %attr(0775,webconfig,webconfig) /var/clearos/wordpress/backup
+%dir %attr(0775,webconfig,webconfig) /var/clearos/wordpress/versions
 /usr/clearos/apps/wordpress/deploy
 /usr/clearos/apps/wordpress/language
 /usr/clearos/apps/wordpress/libraries
-/etc/httpd/conf.d/app-wordpress.conf
